@@ -1,4 +1,5 @@
 package com.example.mehrwerkshop.service;
 
 public interface ImportService {
+    void importShops();
 }

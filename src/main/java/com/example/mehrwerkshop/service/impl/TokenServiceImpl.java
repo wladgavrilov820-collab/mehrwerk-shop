@@ -1,7 +1,7 @@
-package com.example.mehrwerkshop.impl;
+package com.example.mehrwerkshop.service.impl;
 
 import com.example.mehrwerkshop.client.AuthTokenClient;
-import com.example.mehrwerkshop.dto.TokenResponse;
+import com.example.mehrwerkshop.dto.TokenResponseDTO;
 import com.example.mehrwerkshop.service.TokenService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class TokenServiceImpl implements TokenService {
     @NonNull
     public synchronized String getAccessToken() {
         if (accessToken == null || Instant.now().isAfter(expiresAt)) {
-            TokenResponse response = authTokenClient.fetchAuthToken();
+            TokenResponseDTO response = authTokenClient.fetchAuthToken();
 
             if (response == null ||
                     response.accessToken() == null ||

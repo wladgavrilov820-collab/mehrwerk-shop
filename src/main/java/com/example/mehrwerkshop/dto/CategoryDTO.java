@@ -1,4 +1,11 @@
 package com.example.mehrwerkshop.dto;
 
-public record CategoryDTO() {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.NonNull;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record CategoryDTO(
+        @NonNull String id,
+        String name
+) {
 }
